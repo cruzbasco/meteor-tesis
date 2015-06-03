@@ -1,0 +1,25 @@
+.nodes {
+	text-align: center;
+}
+
+.mybox {
+	width: 100px;
+	height: 100px;
+	background-color: #F7F7F7;
+	color:#808080;
+	border-radius: 100%;
+	-webkit-box-shadow: 0px 0px 0px 5px #FF4221;
+	-moz-box-shadow:    0px 0px 0px 5px #FF4221;
+	box-shadow:         0px 0px 0px 5px #FF4221;
+	margin: 10px;
+}
+
+.mybox-image {
+	display: center;
+	margin:20px 0px 0px 5px;
+}
+
+.mybox-name {
+	text-align: center;
+	font-size: 14px;
+}

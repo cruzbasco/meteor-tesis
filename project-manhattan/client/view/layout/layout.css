@@ -1,0 +1,43 @@
+body {
+    color: ghostwhite;
+    background-color: gray;
+    font-family: "helvetica", 'arial', sans-serif;
+    margin: 0px;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin: 0px;
+    padding: 20px;
+}
+
+.header small {
+    font-size: 0.6em;
+}
+
+.nav a {
+    text-decoration: none;   
+}
+
+.header {
+    width: 100%;
+    background-color: orangered;            
+}
+
+.nav {
+    clear: both;
+}
+.nav ul {
+    margin: 0px;
+    padding: 5px 0px 5px 30px;
+}
+.nav li {
+    display: inline;
+    margin-right: 40px;
+}
+.nav li a {
+	color: #ffffff;
+}
+.nav li a:hover, nav li a.current {
+    color: darkorange;
+}
