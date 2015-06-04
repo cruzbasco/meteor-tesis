@@ -1,38 +1,33 @@
 <template name="nodes">
   {{> nav}}
   <div class="nodes">
-    
-    <h1>cambio</h1>
+    <h1>Nodes</h1>
     {{>nodeForm}}
-    <div class="nodes-container">
-      <canvas id="node-canvas">
-<!--        {{#each nodeArray}}-->
-<!--        {{/each}}-->
-
-      </canvas>
-          {{>node}}
-      
+    <div id="nodes-container">
+      <canvas id="node-canvas"></canvas>
+      {{>node}}
     </div>
   </div>
 </template>
 
 <template name="nodeForm">
-  <form>
-    <input type="checkbox" name="hasFather">
+  <form class="form-aux">
     <input type="text" name="numberLines" />
     <input type="submit" value="change" />
   </form>
 </template>
 
 <template name="node">
-  <div id="centerPoint">
-    <div class="mybox">
-    		<a href="">
+  <div id="centerPoint" class="node-dot">
+		<a href="">
+      <div class="mybox">
     			<div class="mybox-image">
             <img src="/images/user.png" style="width:50px;height:50px" />
           </div>
     			<div><p class="mybox-name">User</p></div>
-    		</a>
     	</div>
-    </div>
+		</a>
+  </div>
 </template>
+
+

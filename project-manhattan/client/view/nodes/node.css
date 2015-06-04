@@ -2,6 +2,14 @@
 	text-align: center;
 }
 
+.node-dot {
+	position: absolute;
+}
+
+#nodes-container {
+	position: relative;
+}
+
 .mybox {
 	width: 100px;
 	height: 100px;
