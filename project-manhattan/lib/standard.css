@@ -1,0 +1,24 @@
+li {
+	list-style: none;	
+}
+
+a {
+	text-decoration: none;	
+}
+
+
+
+/*
+	buttons
+*/
+
+.button {
+	border-radius: 10px;
+	-webkit-transition: 0.25ms all ease-in-out; 
+	transition: .25s all ease-in-out;	
+}
+
+.button:hover {
+	-webkit-transform: scale(1.1,1.1) translate(0, -5px); 
+	transform: scale(1.1,1.1) translate(0, -5px);
+}

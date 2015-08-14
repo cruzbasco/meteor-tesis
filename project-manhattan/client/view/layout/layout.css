@@ -36,8 +36,11 @@ body {
     margin-right: 40px;
 }
 .nav li a {
-	color: #ffffff;
+    
+	color: white;
+    transition: 0.25s all ease-in-out;
 }
-.nav li a:hover, nav li a.current {
+.nav li a:hover, 
+.nav li a.current {
     color: darkorange;
 }

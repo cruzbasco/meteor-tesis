@@ -1,0 +1,1 @@
+Structures = new Mongo.Collection('structure');

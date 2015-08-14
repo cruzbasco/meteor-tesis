@@ -1,0 +1,28 @@
+<template name="basics">
+	{{>nav}} {{>addItem}}
+
+	<div class="box items-box">
+		{{>structureItem}}
+	</div>
+</template>
+
+<template name="structureItem">
+	<ul>
+		{{#each item}}
+		<li>
+			<div class="box item-box">
+				<p class="item basic-style item-name">{{name}}</p>
+				<button class="item basic-style button edit-button"><i class="fa fa-pencil-square-o"> Edit</i></button>
+				<button class="item basic-style button delete-button"><i class="fa fa-trash-o"> Delete</i></button>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+</template>
+
+<template name="addItem">
+	<form class="box add-box">
+		<input class="basic-style input-field" type="text" name="itemName">
+		<button type="submit" class="button basic-style add-button"><i class="fa fa-plus"> Add</i></button>
+	</form>
+</template>

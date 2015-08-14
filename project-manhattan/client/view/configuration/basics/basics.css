@@ -1,0 +1,93 @@
+.basic-style {
+	font-size: 16px;
+	text-align: center;
+	letter-spacing: 1.5px;
+}
+
+.box {
+	border-radius: 10px;
+}
+
+.add-box {
+	width: 80%;
+	margin: 30px 10%;
+	background-color: white;
+}
+
+.input-field {
+	width: 250px;
+	margin: 15px;
+	margin-left: 20%;
+	padding: 5px 20px;
+	border: 2px	solid limegreen;
+	border-radius: 10px;
+}
+
+.add-button {
+	background-color: white;
+	color: limegreen;	
+	width: 100px;
+	border: 3px solid limegreen;
+	padding: 5px 0px;
+	margin: 15px;
+}
+
+.add-button:hover {
+	color: white;
+	background-color: limegreen;
+}
+
+.items-box {
+	width: 80%;
+	margin: 30px 10%;
+	padding: 5px;
+	background-color: white;
+}
+
+.item-box {
+	width: 90%;
+	margin: 30px 5px;
+	background-color: lightgray;
+}
+
+.item-box .item {
+	display: inline-block;
+}
+
+.item-box:first-child {
+	margin: 20px;
+	padding-left: 60px;
+}
+
+.item-name {
+	color: black;
+	width: 150px;
+}
+
+.edit-button {
+	background-color: lightgray;
+	color: blue;	
+	width: 100px;
+	border: 3px solid blue;
+	padding: 5px 0px;
+	margin: 15px;
+}
+
+.edit-button:hover {
+	color: white;
+	background-color: blue;
+}
+
+.delete-button {
+	background-color: lightgray;
+	color: red;	
+	width: 100px;
+	border: 3px solid red;
+	padding: 5px 0px;
+	/*margin: 15px;*/
+}
+
+.delete-button:hover {
+	color: white;
+	background-color: red;
+}
