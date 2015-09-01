@@ -1,0 +1,41 @@
+<template name="rules">
+	{{>nav}} {{>editItem}}
+	<div class="box items-box" id="{{structureId}}">
+		{{>addRule}}
+		<ul>
+			{{#each structures.rules}} {{> rule}} {{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="editItem">
+	<form class="box add-box">
+		<input class="basic-style input-field" type="text" name="itemName" value="{{name}}">
+		<button type="submit" class="button basic-style add-button"><i class="fa fa-pencil-square-o"> Edit</i></button>
+	</form>
+</template>
+
+<template name="addRule">
+	<form class="add-rule">
+		<select class="basic-style" name="selectedRule">
+			{{#each structures}}
+			<option value="{{_id}}">{{name}}</option>
+			{{/each}}
+		</select>
+		<select class="basic-style" name="relationType">
+			<option value="own">Own</option>
+			<option value="link">Link</option>
+			<option value="both">Both</option>
+		</select>
+		<button type="submit" class="button basic-style add-button"><i class="fa fa-plus"> Add Rule</i></button>
+	</form>
+</template>
+
+<template name="rule">
+	<li>
+		<div class="box item-box">
+			<span class="item basic-style item-name">{{ruleName ruleId}} - {{relationType}}</span>
+			<button class="item basic-style button delete-button"><i class="fa fa-trash-o"> Delete</i></button>
+		</div>
+	</li>
+</template>

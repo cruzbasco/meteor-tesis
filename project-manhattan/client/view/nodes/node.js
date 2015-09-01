@@ -2,7 +2,7 @@
 /// <reference path="../../../lib/typings/jquery/jquery.d.ts"/>
 
 Template.nodeForm.events({
-	'submit form': function (e) {
+	"submit form": function (e) {
 		e.preventDefault();
         
 		var numberOfNodes = parseInt(e.target.numberLines.value);
