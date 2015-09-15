@@ -1,6 +1,7 @@
 
 .box {
 	border-radius: 10px;
+	padding: 15px;
 }
 
 .add-box {
@@ -23,8 +24,6 @@
 	color: limegreen;	
 	width: 100px;
 	border: 3px solid limegreen;
-	padding: 5px 0px;
-	margin: 15px;
 }
 
 .add-button:hover {
@@ -42,6 +41,7 @@
 .item-box {
 	width: 90%;
 	margin: 30px 5px;
+	padding: 5px;
 	background-color: lightgray;
 }
 

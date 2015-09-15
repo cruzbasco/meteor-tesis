@@ -30,8 +30,16 @@ Meteor.methods({
 		Structures.update(
 			{ _id: itemId },
 			{ $pull: { rules: { ruleId: ruleId } } } );
-	}
+	},
 	
+	// -------------- forms
+	"addForm": function(formName, fields){
+		Forms.insert({name: formName, fields: fields});
+	},
+	
+	"removeForm": function(id){
+		Forms.remove(id);
+	}
 	
 	
 });

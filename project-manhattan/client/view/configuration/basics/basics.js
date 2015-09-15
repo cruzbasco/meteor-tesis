@@ -16,7 +16,7 @@ Template.structureItem.helpers({
 
 Template.structureItem.events({
   "click .delete-button": function () {
-    Meteor.call('removeStructureItem', this._id);
+    Meteor.call('removeForm', this._id);
   }
 });
 

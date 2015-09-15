@@ -6,6 +6,7 @@
     <div id="nodes-container">
       <canvas id="node-canvas"></canvas>
       {{>node}}
+      {{>addNode}}
     </div>
   </div>
 </template>
@@ -30,4 +31,16 @@
   </div>
 </template>
 
+<template name="addNode">
+  <div id="addPoint" class="node-dot">
+		<a class="add-nodes">
+      <div class="addbox">
+    			<div class="mybox-image">
+            <i class="fa fa-plus fa-4x" style="width:50px;height:50px" ></i>
+          </div>
+    			<div><p class="mybox-name">Add</p></div>
+    	</div>
+		</a>
+    </div>
+</template>
 

@@ -14,3 +14,6 @@ Router.route("/config");
 Router.route("/basics");
 
 Router.route("/forms");
+
+Router.route("/formBuilder");
+

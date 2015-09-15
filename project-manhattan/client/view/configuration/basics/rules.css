@@ -1,4 +1,12 @@
+.update-button {
+	background-color: white;
+	color: limegreen;	
+	width: 150px;
+	border: 3px solid limegreen;
+	padding: 5px 0px;
+}
 
-select {
-	-webkit-appearance: menulist-button;
+.update-button:hover {
+	color: white;
+	background-color: limegreen;
 }

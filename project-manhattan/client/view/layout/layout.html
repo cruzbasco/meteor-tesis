@@ -1,8 +1,13 @@
 <template name="nav">
   <div class="header">
-    <div class="container">
+    <div class="logo-nav">
       <h1>Manhattan <small>Project</small></h1>
     </div>
+    
+    <div class="login-menu">
+      {{> loginButtons}}
+    </div>
+    
     <div class="nav">
       <ul>
         <li>
@@ -11,9 +16,11 @@
         <li>
           <a href="/nodes">Nodes</a>
         </li>
+        {{#if currentUser}}
         <li>
           <a href="/config">Configuration</a>
         </li>
+        {{/if}}
       </ul>
     </div>
   </div>
