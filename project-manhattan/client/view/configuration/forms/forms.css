@@ -7,3 +7,7 @@
 	color: limegreen;
 	margin-right: 5px;	
 }
+
+.box > h1 {
+	color: black;
+}
