@@ -10,3 +10,6 @@ iron:router
 autopublish
 jquery
 fortawesome:fontawesome
+twbs:bootstrap
+accounts-ui
+accounts-password

@@ -1,0 +1,13 @@
+.private-info {
+	color: red;
+	margin-right: 5px;
+}
+
+.public-info {
+	color: limegreen;
+	margin-right: 5px;	
+}
+
+.box > h1 {
+	color: black;
+}

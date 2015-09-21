@@ -1,33 +1,55 @@
 <template name="rules">
-	{{>nav}} {{>editItem}}
+	{{>nav}} 
+		{{#if currentUser}}
+	{{>editItem}}
 	<div class="box items-box" id="{{structureId}}">
 		{{>addRule}}
+		<br>
+		<br>
 		<ul>
 			{{#each structures.rules}} {{> rule}} {{/each}}
 		</ul>
 	</div>
+	{{/if}}
 </template>
 
 <template name="editItem">
-	<form class="box add-box">
-		<input class="basic-style input-field" type="text" name="itemName" value="{{name}}">
-		<button type="submit" class="button basic-style add-button"><i class="fa fa-pencil-square-o"> Edit</i></button>
-	</form>
+	<div class="box add-box row">
+		<form>
+			<input class="basic-style input-field add-structure-field" type="text" name="itemName" value="{{name}}" required="">
+			<button type="submit" class="button basic-style add-button"><i class="fa fa-pencil-square-o"> Edit</i></button>
+		</form>
+	</div>
 </template>
 
 <template name="addRule">
-	<form class="add-rule">
-		<select class="basic-style" name="selectedRule">
-			{{#each structures}}
-			<option value="{{_id}}">{{name}}</option>
-			{{/each}}
-		</select>
-		<select class="basic-style" name="relationType">
-			<option value="own">Own</option>
-			<option value="link">Link</option>
-			<option value="both">Both</option>
-		</select>
-		<button type="submit" class="button basic-style add-button"><i class="fa fa-plus"> Add Rule</i></button>
+	<form class="add-rule ">
+		<legend>Rules</legend>
+		<div class="form-group">
+			<div class="col-md-3">
+				<select name="selectedRule" class="form-control">
+					{{#each structures}}
+					<option value="{{_id}}">{{name}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-3">
+				<select name="relationType" class="form-control">
+					<option value="own">Own</option>
+					<option value="link">Link</option>
+					<option value="both">Both</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-md-3">
+				<button type="submit" class="btn button basic-style update-button"><i class="fa fa-plus"> Add Rule</i></button>
+			</div>
+		</div>
 	</form>
 </template>
 
@@ -35,7 +57,7 @@
 	<li>
 		<div class="box item-box">
 			<span class="item basic-style item-name">{{ruleName ruleId}} - {{relationType}}</span>
-			<button class="item basic-style button delete-button"><i class="fa fa-trash-o"> Delete</i></button>
+			<button class="btn item basic-style button delete-button"><i class="fa fa-trash-o"> Delete</i></button>
 		</div>
 	</li>
 </template>

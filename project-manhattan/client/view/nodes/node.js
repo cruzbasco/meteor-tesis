@@ -1,6 +1,12 @@
 /// <reference path="../../../lib/typings/meteor/meteor.d.ts"/>
 /// <reference path="../../../lib/typings/jquery/jquery.d.ts"/>
 
+Template.nodes.rendered = function() {
+  drawLines(2); 
+  Session.set("numberLines", 2);
+   
+};
+
 Template.nodeForm.events({
 	"submit form": function (e) {
 		e.preventDefault();
@@ -9,9 +15,23 @@ Template.nodeForm.events({
 		e.target.numberLines.value= '';
 
         numberOfNodes = numberOfNodes + 2;
+        Session.set("numberLines", numberOfNodes);
 
         drawLines (numberOfNodes);
 	}
+});
+
+Template.addNode.events({
+    "click .add-nodes": function(e) {
+        e.preventDefault();
+        var lines = parseInt(Session.get("numberLines"));
+        
+        lines += 1;
+        
+        Session.set("numberLines", lines);
+        
+        drawLines(lines);
+    }
 });
 
 function drawBubble (topBubble, leftBubble) {
@@ -19,6 +39,15 @@ function drawBubble (topBubble, leftBubble) {
     var heigthForm = $(".form-aux").first().height();
     
     $( "#centerPoint" ).offset({ 
+                top: topBubble + heigthForm,
+                left: leftBubble - widthNode});
+};
+
+function drawAddBubble (topBubble, leftBubble) {
+    var widthNode = ($(".node-dot").first().width())/2;
+    var heigthForm = $(".form-aux").first().height();
+    
+    $( "#addPoint" ).offset({ 
                 top: topBubble + heigthForm,
                 left: leftBubble - widthNode});
 };
@@ -40,10 +69,19 @@ function drawLines (numberOfNodes) {
     
     for ( var i = 0 ; i < numberOfNodes ; i++ ) {
     	context.lineWidth = 5;            
+        
+        
+        context.beginPath();
+        context.moveTo(centerX, centerY);
+        
+        var posX = centerX - (r * Math.cos(degToRad(deg * i)));
+        var posY = centerY - (r * Math.sin(degToRad(deg * i)));
+        
         switch (i) {
             case 0:
-                context.strokeStyle = "#00F94F";
+                context.strokeStyle = "#38CD00";
                 context.setLineDash([3,4]);
+                drawAddBubble(posY+heigthNav, posX);
                 break;
             case 1:
                 context.strokeStyle = "#000000";
@@ -52,12 +90,6 @@ function drawLines (numberOfNodes) {
                 context.strokeStyle = "#FF4221";
                 context.setLineDash([]);
         }
-        
-        context.beginPath();
-        context.moveTo(centerX, centerY);
-        
-        var posX = centerX - (r * Math.cos(degToRad(deg * i)));
-        var posY = centerY - (r * Math.sin(degToRad(deg * i)));
         
         context.lineTo(posX, posY);
         context.stroke();

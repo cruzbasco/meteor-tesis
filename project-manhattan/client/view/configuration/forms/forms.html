@@ -1,5 +1,50 @@
 <template name="forms">
-  {{> nav}}
+	{{>nav}} {{#if currentUser}}
+	
+		<div class="box add-box row">
 
-  <h1>Forms</h1>
+	<h1>Forms</h1>
+	<div class="text-right">
+		<!--<div class="dropdown">-->
+			<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuForm" data-toggle="dropdown">
+				New Form
+				<!--<span class="caret"></span>-->
+			</button>
+			<!--<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuForm">
+				<% @entity_types.each do |entity_type| %>
+					<li role="presentation">
+						<a role="menuitem" tabindex="-1" href="/form_builder/<%= entity_type %>">
+							<%= entity_type %>
+						</a>
+					</li>
+					<% end %>
+			</ul>
+		</div>-->
+	</div>
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th></th>
+					<th>Options</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{#each form}}
+					<tr>
+						<td>{{name}}</td>
+						<td><a class="btn btn-primary disabled"> Preview </a></td>
+						<td><a class="btn btn-success disabled"> Edit </a></td>
+						<td><a class="btn btn-danger delete-form">Delete</a></td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+	</div>
+	</div>
+	{{/if}}
+	
+	
 </template>
