@@ -33,8 +33,8 @@ Meteor.methods({
 	},
 	
 	// -------------- forms
-	"addForm": function(formName, fields){
-		Forms.insert({name: formName, fields: fields});
+	"addForm": function(formName, formType, fields){
+		Forms.insert({name: formName, type: formType, fields: fields});
 	},
 	
 	"removeForm": function(id){

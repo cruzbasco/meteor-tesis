@@ -1,7 +1,7 @@
 <template name="formBuilder">
   {{> nav}}
 
-  <div class="modal fade" id="float_modal" role="dialog">
+  <div class="modal fade" id="insert_float_modal" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -58,27 +58,35 @@
         <center>
           <legend>Form
           </legend>
+          <!--new field-->
           <div class="text-right">
-            <a href="#float_modal" class="btn btn-success btn-sm" data-toggle="modal">New Field</a>
+            <a href="#insert_float_modal" class="btn btn-success btn-sm" data-toggle="modal">New Field</a>
           </div>
-
-          <!-- Form Hidden Values -->
-          <!--<input type="hidden" name="cc_form_type" value="<%= @entity_type %>">-->
 
           <div class="form-group">
             <label class="col-md-2 control-label" for="form_name"></label>
             <div class="col-md-8">
               <div class="input-group">
                 <span class="input-group-addon">Form Name</span>
-                <input id="form_name" name="cc_form_name" class="form-control" value="" type="text" required="" autofocus="">
+                <input id="form_name" class="form-control" value="" type="text" required="" autofocus="">
+
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="form-type">Type</label>
+            <div class="col-md-4">
+              <select id="form-type" class="form-control">
+                {{#each structures}}
+                <option value="{{name}}">{{name}}</option>
+                {{/each}}
+              </select>
+            </div>
+          </div>
+
 
         </center>
         <div>
-          <!-- class="body"> -->
-          <!-- poner una tabla aqui -->
           <div class="table-responsive">
 
             <table id="formTable" class="table table-striped">
@@ -89,12 +97,12 @@
                   <th>State</th>
                   <th></th>
                   <th></th>
-                  <th>Edit</th>
                   <th>Delete</th>
                 </tr>
               </thead>
+
               <tbody class="body">
-                
+                <!-- adding elements here -->
 
               </tbody>
             </table>
