@@ -1,3 +1,5 @@
+/* global Router */
+
 Router.route("/",function () {
 	this.render('principal');
 });
@@ -17,3 +19,14 @@ Router.route("/forms");
 
 Router.route("/formBuilder");
 
+Router.route("/forms/:id", function () {
+	var form = Forms.findOne({_id:this.params.id});
+ 	this.render("formEditableBuilder", {data: form});
+});
+
+Router.route("/preview/:id", function (){
+	var form = Forms.findOne({_id:this.params.id});
+ 	this.render("formPreview", {data: form});
+});
+
+Router.route("/appUsers");

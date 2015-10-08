@@ -1,4 +1,4 @@
-<template name="formBuilder">
+<template name="formEditableBuilder">
   {{> nav}}
 
   <div class="modal fade" id="insert_float_modal" role="dialog">
@@ -68,7 +68,7 @@
             <div class="col-md-8">
               <div class="input-group">
                 <span class="input-group-addon">Form Name</span>
-                <input id="form_name" class="form-control" value="" type="text" required="" autofocus="">
+                <input id="form_name" class="form-control" value="{{name}}" type="text" required="" autofocus="">
 
               </div>
             </div>
@@ -77,8 +77,13 @@
             <label class="col-md-4 control-label" for="form-type">Type</label>
             <div class="col-md-4">
               <select id="form-type" class="form-control">
-                {{#each structures}}
-                <option value="{{name}}">{{name}}</option>
+                {{#each structures }}
+                
+                  {{#if checkName ../type}}
+                    <option value="{{name}}" selected="selected">{{name}}</option>
+                  {{else}}
+                    <option value="{{name}}">{{name}}</option>                  
+                  {{/if}}
                 {{/each}}
               </select>
             </div>
@@ -103,7 +108,20 @@
 
               <tbody class="body">
                 <!-- adding elements here -->
-
+					{{#each fields}}
+						<tr id="{{title}}" class="row-item-form">
+              <td><p>{{title}}</p></td>
+              <td><p>{{type}}</p></td>
+              {{#if isPublic state}}
+		            <td><p><i class="fa fa-unlock-alt fa-lg public-info"></i>{{state}}</p></td>
+              {{else}}
+		            <td><p><i class="fa fa-lock fa-lg private-info"></i>{{state}}</p></td>
+              {{/if}}
+              {{{btnUp}}} 
+              {{{btnDown}}}
+              {{{btnDelete}}} 
+            </tr>
+					{{/each}}
               </tbody>
             </table>
           </div>

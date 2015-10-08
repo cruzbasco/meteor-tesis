@@ -1,14 +1,43 @@
 /// <reference path="../../../../lib/typings/meteor/meteor.d.ts"/>
 
-Session.set('names', []);
-
-Template.formBuilder.helpers({
+Template.formEditableBuilder.helpers({
 	structures: function () {
 		return Structures.find({}, { sort: { name: 1 } });
+	},
+
+	btnUp: function () {
+		return button_up;
+	},
+
+	btnDown: function () {
+		return button_down;
+	},
+
+	btnDelete: function () {
+		return button_delete;
+	},
+
+	isPublic: function (state) {		
+		if (state == "public")
+			return true;
+		else
+			return false;
+	},
+	
+	ftype: function(){
+		return this.type;	
+	},
+
+	checkName: function(ftype){
+		if (ftype == this.name)
+			return true;
+		else
+			return false;
 	}
+
 });
 
-Template.formBuilder.events({
+Template.formEditableBuilder.events({
 	"shown.bs.modal #insert_float_modal": function () {
 		$('#inputTitle').focus();
 	},
@@ -98,16 +127,14 @@ Template.formBuilder.events({
 			fields.push({ title: fTitle, type: fType, state: fState });
 		}
 
-				console.log(fields);
-		
-		Meteor.call("addForm", formName,formType, fields);
+		Meteor.call("updateForm", this._id,formName, formType, fields);
 
 		Router.go("/forms");
 	}
 
 });
 
-function add_custom_attribute() {
+function add_attribute() {
 	var inputTitle = $("#inputTitle").val();
 	var inputType = $("#inputType option:selected").val();
 	var inputState = $("#inputState option:selected").val();
@@ -118,26 +145,3 @@ function add_custom_attribute() {
 	$("tbody.body").append("<tr id='" + inputTitle + "' class='row-item-form'>" + fieldTitle + fieldType + fieldStates(inputState) + button_up + button_down + button_delete + "</tr>");
 }
 
-function clean_modal(template) {
-	template.$("#inputTitle").val('');
-}
-
-function fieldStates(state) {
-	if (state == "public")
-		return "<td><p><i class='fa fa-unlock-alt fa-lg public-info'></i>" + state + "</p></td>"
-
-	else
-		return "<td><p><i class='fa fa-lock fa-lg private-info'></i>" + state + "</p></td>"
-}
-
-
-function isAlreadyCreated(name) {
-	var names = Session.get('names');
-
-	var result = $.inArray(name, names);
-
-	if (result < 0)
-		return true;
-	else
-		return false;
-}

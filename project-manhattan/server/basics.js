@@ -35,6 +35,12 @@ Meteor.methods({
 	// -------------- forms
 	"addForm": function(formName, formType, fields){
 		Forms.insert({name: formName, type: formType, fields: fields});
+		console.log("server " + formName);
+	},
+	
+	"updateForm":function(formId, formName, formType, fields){
+		Forms.update({ _id: formId },
+			{ $set: {name: formName, type: formType, fields: fields} } );
 	},
 	
 	"removeForm": function(id){
@@ -43,3 +49,7 @@ Meteor.methods({
 	
 	
 });
+
+Meteor.publish('appUsers', function() {
+   return Meteor.users.find({}, {fields:{username:1,emails:1}})
+ })
