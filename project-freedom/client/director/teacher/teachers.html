@@ -1,0 +1,17 @@
+<template name="teachers">
+    {{>navbar}}
+    
+    <div class="container">
+        <legend>Docentes</legend>
+        <div class="list-group">
+            {{#each teachers}}
+                <a href="/teacher" class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        {{name}}
+                    </h4>
+                </a>
+            {{/each}}
+        </div>
+    </div>
+    
+</template>
