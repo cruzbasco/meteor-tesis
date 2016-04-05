@@ -1,0 +1,79 @@
+{"estructuras":[
+
+    // Materia
+    {"materia": { 
+        "calendario": "por definir",
+        "manuales": "por definir",
+        "plantillas": "por definir",
+        "semestre": "ejem: 2016-1",
+        "carrera_id": "",
+        "docente_id": ""
+        }
+    },
+
+    // Carrera
+    {"carrera":{
+        "seminarios":["en caso de haber mas de 1 por semestre"],
+        "talleres":["en caso de haber mas de 1 por semestre"],
+        "director_id": ""
+        }
+    },
+
+    // Proyecto
+    {"proyecto":{
+        "perfil":{
+            "titulo":"",
+            "opciones": "titulos alternativos",
+            "tutor_name": "en formulario, pero por definir si entra como campo real o solo en formulario html",
+            "relator_name": "en formulario, pero por definir si entra como campo real o solo en formulario html",
+            "caso_de_estudio": "en caso de tener uno",
+            "palabras_clave": ["lista de tags. referencia para busqueda"]
+        },
+        "documento y codigo":{
+            "link": "enlace web",
+            "notas": [{
+                    "editor_id": "",
+                    "tipo" : "observacion, sugerencia, reclamo",
+                    "mensaje": ""
+                }]
+            },
+        "alumnos": [ "en caso de q mas de 1 haga un proyecto"],
+        "tutor_id": "",
+        "relator_id": "",
+        "materia_id": "",
+        "carrera_id": "",
+        "estado": "en_curso, terminado, abandonado" 
+        }
+    },
+
+    // Notificaciones - revisar documentacion de mongo, si puede agregarse solo el ID en documento/
+    {"notificaciones": {
+        "editor_id": "",    
+        "mensaje": "",
+        "fecha": "",
+        "tipo": "calendario, manuales, etc" 
+        }
+    },
+
+    // Usuarios - por defecto, solo los campos adicionales
+    {"usuarios":{
+        "perfil":{
+            "nombre": "nombre completo",
+            "correo": "",
+            "telefono": "",  
+            "contador_de_notificaciones": 0,
+            "tipo_de_usuario": "estudiante, docente, director, tutor,relator,administrador" 
+            }
+        }
+    },
+
+    // Tokens
+    {"tokens":{
+        "token": "generado de 8 caracteres",
+        "usado?": false,
+        "coleccion": "nombre de la coleccion a la q pertenece",
+        "coleccion_id": "",
+        "campo": "donde apunta"
+        }
+    }
+]}

@@ -1,5 +1,6 @@
 Template.editableProfile.onRendered(function () {
     this.$("#tags").tagsInput();
+    this.$('#tags').focus();
 });
 
 Template.editableProfile.helpers({
@@ -26,6 +27,7 @@ Template.editableProfile.helpers({
 Template.editableProfile.events({
     "submit .form-horizontal": function (event) {
         event.preventDefault();
+        // poner logica
         Router.go("/profile");
     }
 });
