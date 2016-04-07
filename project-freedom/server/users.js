@@ -1,6 +1,6 @@
 Meteor.methods({
-    updateUsers: function(user_id) {
-        var profileUser = { name: "cruz bazco", mail: "cruz@basco.com", phone: "71799098", appUser: "student" };
+    updateUsers: function(user_id, name, mail, phone) {
+        var profileUser = { name: name, mail: mail, phone: phone, appUser: ["administrator"]     };
 
         Meteor.users.update({ _id: user_id }, { $set: {profile: profileUser }})
 

@@ -1,6 +1,5 @@
 Template.editableProfile.onRendered(function () {
     this.$("#tags").tagsInput();
-    this.$('#tags').focus();
 });
 
 Template.editableProfile.helpers({

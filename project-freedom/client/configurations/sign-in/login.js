@@ -20,10 +20,13 @@ Template.login.events({
                 // The user might not have been found, or their passwword
                 // could be incorrect. Inform the user that their
                 // login attempt has failed. 
+                
+                template.$('input').parent().parent().addClass("has-error")
             }else{
                 // The user has been logged in.
+                template.$('input').parent().parent().removeClass("has-error")  
+                $('#login-modal').modal('hide');
             }
         });
-        $('#login-modal').modal('hide');
     }  
 });
