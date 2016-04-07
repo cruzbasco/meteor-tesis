@@ -6,6 +6,7 @@ Meteor.methods({
        var collectionId = new Mongo.ObjectID()._str;
        var field = "director_id";
        
+       Codes.insert({"code":code, "isUsed":isUsed, "collection": collection, "collection_id": collectionId, "field": field});
        
        Careers.insert({"_id": collectionId, "name": "sin nombre.." , "code": code});
    } 
