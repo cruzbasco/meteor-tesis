@@ -1,17 +1,39 @@
+/// <reference path="../typings/tsd.d.ts" />
+
 Meteor.methods({
-   "addCareer": function (name) {
-       var code = GenerateCode();
-       var isUsed = false;
-       var collection = "careers";
-       var collectionId = new Mongo.ObjectID()._str;
-       var field = "director_id";
-       
-       Codes.insert({"code":code, "isUsed":isUsed, "collection": collection, "collection_id": collectionId, "field": field});
-       
-       Careers.insert({"_id": collectionId, "name": "sin nombre.." , "code": code});
-   } 
+    "addCareer": function(name) {
+        Careers.insert({ "name": name });
+    },
+    "addDirectorToCareer": function(career_id, user_id) {
+        Careers.update(
+            { "_id": career_id },
+            { $addToSet: { "directors": user_id } }
+        );
+        
+        Roles.addUsersToRoles(user_id, 'director')
+    },
+    "removeUserFromCareer": function(career_id, user_id) {
+        Careers.update(
+            { "_id": career_id },
+            { $pull: { "directors": user_id } }
+        );
+        
+        Roles.removeUsersFromRoles(user_id, 'director')
+    },
+    "changeCareerName": function(career_id, name) {
+        Careers.update(
+            { "_id": career_id },
+            { $set: { "name": name } }
+        );
+    }
 });
 
-Meteor.publish("careers", function(){
+Meteor.publish("careers", function() {
     return Careers.find({});
 })
+
+Meteor.publish("adminUsers", function() {
+    return Meteor.users.find({});
+})
+
+

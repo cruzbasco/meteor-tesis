@@ -1,6 +1,6 @@
 // Main
-Router.route("/",function () {
-	this.render('main');
+Router.route("/", function() {
+    this.render('main');
 });
 
 //              Student
@@ -27,23 +27,33 @@ Router.route("/teacher");
 
 //              Administrator
 // Careers
-Router.route("/administrator/careers", function () {
+Router.route("/administrator/careers", function() {
     this.render("careers");
 });
 
+// Career
+Router.route("/administrator/career/:id", function() {
+    var career = Careers.findOne({ _id: this.params.id });
+    this.render("adminCareer", { data: career });
+});
+
+
+Router.route("/administrator/users", function() {
+    this.render("adminUsers");
+});
 
 //              Configuration
 // User Profile
-Router.route("/configuration/userProfile", function () {
+Router.route("/configuration/userProfile", function() {
     this.render("userProfile");
 });
 
 // Editable User Profile
-Router.route("/configuration/editableUserProfile", function () {
+Router.route("/configuration/editableUserProfile", function() {
     this.render("editableUserProfile");
 });
 
 // Use Code
-Router.route("/configuration/useCode", function () {
+Router.route("/configuration/useCode", function() {
     this.render("useCode");
 });

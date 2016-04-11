@@ -2,7 +2,9 @@
     {{>navbar}}
 
     <div class="container">
-        {{>addCareer}} {{>careerList}}
+        {{>addCareer}}
+        <br>
+        {{>careerList}}
     </div>
 </template>
 
@@ -22,11 +24,11 @@
             </div>
 
             <!-- Button -->
-            <div class="form-group">
+            <div class="form-group has-success">
                 <label class="col-md-4 control-label" for=""></label>
                 <div class="col-md-4">
                     <button id="" name="" class="btn btn-success">Agregar</button>
-                    <span class="help-block ">xx</span>                    
+                    <span class="help-block hidden"><h5>La carrera fue agregada.</h5></span>                    
                 </div>
             </div>
 
@@ -39,9 +41,9 @@
     <legend>Carreras</legend>
     <div class="list-group">
         {{#each careers}}
-        <a href="#" class="list-group-item">
+        <a href="/administrator/career/{{_id}}" class="list-group-item">
             <h4 class="list-group-item-heading">
-                        {{name}} - {{code}}
+                        {{name}}
                     </h4>
         </a>
         {{/each}}

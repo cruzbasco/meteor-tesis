@@ -17,7 +17,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <!-- Students -->
-                    {{#if isStudent}}
+                    {{#if isInRole 'student'}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Alumno <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -29,7 +29,7 @@
                     {{/if}}
                     
                     <!-- Teachers -->
-                    {{#if isTeacher}}
+                    {{#if isInRole 'teacher'}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docente <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -41,8 +41,8 @@
                     </li>
                     {{/if}}
                     
-                    {{#if isTutor}}
                     <!-- Tutor/Relator -->
+                    {{#if isInRole 'tutor,relator'}}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tutoria <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -52,7 +52,7 @@
                     {{/if}}
                     
                     <!-- Director -->
-                    {{#if isDirector}}                    
+                    {{#if isInRole 'director'}}                    
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Director <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -66,12 +66,13 @@
                     </li>
                     {{/if}}
                     
-                    {{#if isAdministrator}}
+                    {{#if isInRole 'administrator'}}
                     <!-- Administrador -->
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Administracion <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="/administrator/careers">carreras</a></li>
+                            <li><a href="/administrator/careers">Carreras</a></li>
+                            <li><a href="/administrator/users">Usuarios</a></li>
                         </ul>
                     </li>
                     {{/if}}

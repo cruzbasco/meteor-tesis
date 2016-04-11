@@ -1,0 +1,39 @@
+<template name="adminUsers">
+    {{>navbar}}
+    <div class="container">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Filtrar Usuarios</legend>
+
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="user-mail"><i class="fa fa-search"></i> Buscar</label>
+                    <div class="col-md-4">
+                        <input id="user-search" name="user-search" type="text" class="form-control input-md">
+                        <span class="help-block"></span>
+                    </div>
+                </div>
+
+            </fieldset>
+
+        <legend>Usuarios</legend>
+        <div class="list-group">
+            {{#each users}}
+            <div class="list-group-item " data-toggle="modal" data-target="#studentModal">
+                <h4 class="list-group-item-heading">
+                    <div class="row">
+                        <div class="col-md-6">{{profile.name}}</div>
+                        <div class="col-md-6 text-right">
+                            <span class="btn btn-sm btn-danger text-right">Eliminar</span>
+                        </div>
+                    </div>
+                </h4>
+                <p class="list-group-item-text">
+                    {{mail emails}}
+                </p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</template>

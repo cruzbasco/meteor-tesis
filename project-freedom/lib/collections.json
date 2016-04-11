@@ -15,7 +15,7 @@
                     }
                 ],
                 "nombre":"",
-                "director_id": ""
+                "directors": ["ids"]
             }
         },
         // Proyectos
