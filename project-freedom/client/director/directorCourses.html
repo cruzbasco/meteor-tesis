@@ -1,0 +1,70 @@
+<template name="directorCourses">
+    {{>navbar}}
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/director/careers">Carreras</a></li>
+            <li class="active"> {{name}}</li>
+        </ol>
+        
+        <input type="text" id="careerId" value="{{_id}}" style="display: none">
+
+        <div class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Agregar Materia</legend>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="courseName">Materia</label>
+                    <div class="col-md-4">
+                        <select id="courseName" name="courseName" class="form-control">
+                            <option value="Seminario de Grado">Seminario de Grado</option>
+                            <option value="Taller de Grado">Taller de Grado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select Basic -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="courseParallel">Paralelo</label>
+                    <div class="col-md-4">
+                        <select id="courseParallel" name="courseParallel" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="addCourse"></label>
+                    <div class="col-md-4">
+                        <button id="addCourse" name="addCourse" class="btn btn-success">Agregar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <br>
+
+        <legend>Materias</legend>
+        <div class="list-group">
+            {{#each courses}}
+            <a href="/director/course/{{_id}}" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    {{course}} <small> Paralelo: {{parallel}}</small>
+                </h4>
+                <p class="list-group-item-text">
+                </p>
+            </a>
+            {{/each}}
+        </div>
+
+
+    </div>
+</template>

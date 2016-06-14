@@ -1,0 +1,80 @@
+<template name="directorCourse">
+    {{>navbar}}
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/director/careers">Carreras</a></li>
+            <li><a href="/director/career/{{career_id}}">{{career_name}}</a></li>
+            <li class="active">{{course}} - {{parallel}}</li>
+        </ol>
+        
+        <input type="text" id="careerId" value="{{career_id}}" style="display: none">
+        <input type="text" id="courseId" value="{{_id}}" style="display: none">
+        <input type="text" id="teacherId" value="{{teacher_id}}" style="display: none">
+
+
+        <div class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <legend>Docente</legend>
+
+                <!-- Text input-->
+                <div class="form-group search-teacher">
+                    <label class="col-md-4 control-label" for="teacher">Docente</label>
+                    <div class="col-md-4">
+                        <input id="teacher" name="teacher" type="text" value="{{teacherName}}" class="form-control input-md" disabled>
+
+                    </div>
+                </div>
+
+                <!-- Text input-->
+                <div class="form-group search-teacher" style="display: none">
+                    <label class="col-md-4 control-label" for="searchTeacher"><i class="fa fa-search"></i> Nombre / Correo</label>
+                    <div class="col-md-4">
+                        <input id="searchTeacher" name="searchTeacher" type="text" placeholder="" class="form-control input-md">
+
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group search-teacher">
+                    <label class="col-md-4 control-label" for="edit"></label>
+                    <div class="col-md-4">
+                        <button id="edit" name="edit" class="btn btn-primary">Editar</button>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="form-group search-teacher" style="display: none">
+                    <label class="col-md-4 control-label" for="cancel"></label>
+                    <div class="col-md-4">
+                        <button id="cancel" name="cancel" class="btn btn-default">Cancelar</button>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <br>
+        <div class="search-teacher" style="display: none">
+            <legend>Selecciona al Docente</legend>
+            <div class="list-group">
+                {{#each users}}
+                <a class="list-group-item teacher-selected">
+                    <h4 class="list-group-item-heading">
+                        <div class="row">
+                            <div class="col-md-6 go-to-course">{{profile.name}}
+                                <small> {{mail emails}}</small>
+                            </div>
+                        </div>
+                    </h4>
+                    <p class="list-group-item-text">
+                    </p>
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+</template>

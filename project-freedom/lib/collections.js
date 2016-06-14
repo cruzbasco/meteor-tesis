@@ -1,3 +1,5 @@
+Courses = new Mongo.Collection('courses');
+
 Careers = new Mongo.Collection('careers');
 
 Projects = new Mongo.Collection('projects');

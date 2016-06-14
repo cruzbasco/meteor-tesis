@@ -3,20 +3,26 @@
         // Carreras
         {
             "carrera": {
-                "materias": [
-                    {
-                        "calendario": "por definir",
-                        "manuales": "por definir",
-                        "plantillas": "por definir",
-                        "nombre": "",
-                        "paralelo": "",
-                        "semestre": "ejem: 2016-1",
-                        "docente_id": ""
-                    }
-                ],
-                "nombre":"",
-                "directors": ["ids"]
+                "nombre": "",
+                "directors": [
+                    "ids"
+                ]
             }
+        },
+        // Materias
+        {
+            "materia": [
+                {
+                    "calendario": "por definir",
+                    "manuales": "por definir",
+                    "plantillas": "por definir",
+                    "nombre": "",
+                    "paralelo": "",
+                    "semestre": "ejem: 2016-1",
+                    "docente_id": "",
+                    "carrera_id": ""
+                }
+            ]
         },
         // Proyectos
         {
@@ -86,7 +92,7 @@
                     "3. docente crea un asiento",
                     "4. alumno envia mails a tutor/relator"
                 ],
-                "cuando se usan?":[
+                "cuando se usan?": [
                     "usuario reclama codigo"
                 ]
             }

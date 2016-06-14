@@ -1,6 +1,7 @@
 <template name="adminUsers">
     {{>navbar}}
     <div class="container">
+        <div class="form-horizontal">
             <fieldset>
 
                 <!-- Form Name -->
@@ -16,16 +17,25 @@
                 </div>
 
             </fieldset>
+        </div>
 
         <legend>Usuarios</legend>
         <div class="list-group">
             {{#each users}}
-            <div class="list-group-item " data-toggle="modal" data-target="#studentModal">
+            <div class="list-group-item ">
                 <h4 class="list-group-item-heading">
                     <div class="row">
-                        <div class="col-md-6">{{profile.name}}</div>
+                        <div class="col-md-6">{{profile.name}}
+                            {{#if isAdministrator roles}}
+                            <small> Administrador</small>
+                            {{/if}}
+                        </div>
                         <div class="col-md-6 text-right">
-                            <span class="btn btn-sm btn-danger text-right">Eliminar</span>
+                            {{#if isAdministrator roles}}
+                                <span id="remove-admin" class="btn btn-sm btn-danger text-right">Remover</span>
+                            {{else}}
+                                <span id="promote-admin" class="btn btn-sm btn-success text-right ">Promocionar</span>
+                            {{/if}}                                                        
                         </div>
                     </div>
                 </h4>

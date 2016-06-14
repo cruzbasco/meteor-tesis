@@ -4,14 +4,14 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="/administrator/careers">Carreras</a></li>
-            <li class="active">Carrera</li>
+            <li class="active">{{name}}</li>
         </ol>
     </div>
     
     <input type="text" id="careerId" value="{{_id}}" style="display: none">
 
     <div class="container">
-        <form class="form-horizontal">
+        <div class="form-horizontal">
             <fieldset>
 
                 <!-- Form Name -->
@@ -42,7 +42,7 @@
                 </div>
 
             </fieldset>
-        </form>
+        </div>
 
         <form class="form-horizontal">
             <fieldset>
@@ -76,7 +76,7 @@
             <div class="list-group-item " data-toggle="modal" data-target="#studentModal">
                 <h4 class="list-group-item-heading">
                     <div class="row">
-                        <div class="col-md-6">{{userName this}}</div>
+                        <div class="col-md-6">{{userName this}} <small>{{userMail this}}</small></div>
                         <div class="col-md-6 text-right">
                             <span class="btn btn-sm btn-danger text-right">Eliminar</span>
                         </div>

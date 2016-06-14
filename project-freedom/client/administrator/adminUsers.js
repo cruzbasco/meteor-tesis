@@ -1,12 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 Template.adminUsers.onCreated(function() {
-    Meteor.subscribe('adminUsers');
-});
-
-Template.adminUsers.onRendered(function() {
-    Session.set('searchText', "");
-    
+    this.autorun(function(){
+        Meteor.subscribe('adminUsers');
+        Session.set('searchText', "");        
+    });
 });
 
 Template.adminUsers.helpers({
@@ -21,6 +19,14 @@ Template.adminUsers.helpers({
     },
     'mail': function(emails) {
         return emails[0].address;
+    },
+    "isAdministrator" : function (roles) {
+        for(role of roles) {
+            if (role === 'administrator'){
+                return true;
+            }
+        }
+        return false;
     }
 });
 
@@ -29,5 +35,13 @@ Template.adminUsers.events({
         var searchText = template.$('#user-search').val();
         
         Session.set('searchText', searchText);
+    },
+    'click #promote-admin' : function(event, template) {
+        console.log('prmote')
+        Meteor.call('promoteAdmin', this._id);
+    },
+    'click #remove-admin' : function(event, template) {
+        console.log('remove')        
+        Meteor.call('removeAdmin', this._id);
     }
 });

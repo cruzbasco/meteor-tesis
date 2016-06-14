@@ -1,0 +1,17 @@
+<template name="teacherCourses">
+    {{>navbar}}
+    
+    <div class="container">
+        <legend>Materias</legend>
+        <div class="list-group">
+            {{#each courses}}
+            <a href="/teacher/students/{{_id}}" class="list-group-item ">
+                <h4 class="list-group-item-heading">
+                    {{course}} <small> {{parallel}}</small>
+                </h4>
+                <p class="list-group-item-text">{{careerName career_id}}</p>
+            </a>
+            {{/each}}
+        </div>
+    </div>
+</template>

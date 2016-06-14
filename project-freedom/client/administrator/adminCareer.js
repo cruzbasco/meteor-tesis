@@ -11,9 +11,13 @@ Template.adminCareer.onRendered(function(){
 
 
 Template.adminCareer.helpers({
-    'userName': function(user_id){
+    'userMail': function(user_id){
         var user = Meteor.users.findOne({_id: user_id})
         return user.emails[0].address;
+    },
+    'userName': function(user_id){
+        var user = Meteor.users.findOne({_id: user_id})
+        return user.profile.name;
     }
 })
 
