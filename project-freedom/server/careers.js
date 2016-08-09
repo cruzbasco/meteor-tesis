@@ -11,7 +11,7 @@ Meteor.methods({
             { $addToSet: { "directors": user_id } }
         );
 
-        Roles.addUsersToRoles(user_id, 'director')
+        Roles.addUsersToRoles(user_id, 'director');
     },
     "removeUserFromCareer": function(career_id, user_id) {
         Careers.update(
@@ -19,7 +19,7 @@ Meteor.methods({
             { $pull: { "directors": user_id } }
         );
 
-        Roles.removeUsersFromRoles(user_id, 'director')
+        Roles.removeUsersFromRoles(user_id, 'director');
     },
     "changeCareerName": function(career_id, name) {
         Careers.update(
@@ -38,5 +38,5 @@ Meteor.publish("adminUsers", function() {
 });
 
 Meteor.publish("takeCareerByDirector", function() {
-    return Careers.find({ "directors": this.userId })
+    return Careers.find({ "directors": this.userId });
 });

@@ -14,6 +14,6 @@ Template.teacherCourses.helpers({
     },
     'careerName': function(career_id) {
         var career = Careers.findOne({'_id': career_id});
-        return career.name;
+        return career && career.name;
     }
 });

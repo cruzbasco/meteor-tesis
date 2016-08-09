@@ -2,4 +2,4 @@ Meteor.methods({
     
     
     
-})
+});

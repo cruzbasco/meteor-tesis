@@ -22,7 +22,7 @@ Template.directorCourse.onRendered(function() {
 Template.directorCourse.helpers({
     'teacherName': function() {
         var teacher = Meteor.users.findOne({ _id: Session.get('teacher_id') });
-        return teacher.profile.name;
+        return teacher && teacher.profile && teacher.profile.name;
     },
     'users': function() {
         var search = Session.get('searchTeacher');
@@ -41,7 +41,7 @@ Template.directorCourse.helpers({
     },
     'career_name': function() {
         var career = Careers.findOne({_id: Session.get('career_id')});
-        return career.name;        
+        return career && career.name;        
     }
 });
 

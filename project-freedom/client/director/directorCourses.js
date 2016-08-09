@@ -19,11 +19,12 @@ Template.directorCourses.helpers({
 });
 
 Template.directorCourses.events({
-    'click #addCourse': function(event, template) {
+    'submit .form-horizontal': function(event, template) {
         event.preventDefault();
 
-        var course = template.$('#courseName').val();
-        var parallel = template.$('#courseParallel').val();
+        var target = event.target;
+        var course = target.courseName.value;
+        var parallel = target.courseParallel.value;
 
         Meteor.call('addCourse', Session.get('career_id'), course, parallel);
     }

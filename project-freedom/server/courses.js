@@ -18,8 +18,8 @@ Meteor.methods({
         
         console.log(old_teacher_id +"  "+ coursesSize);
         
-        if (coursesSize < 2) {
-            Roles.removeUsersFromRoles(old_teacher_id, 'teacher')
+        if (coursesSize < 1) {
+            Roles.removeUsersFromRoles(old_teacher_id, 'teacher');
         }
     }
 });
